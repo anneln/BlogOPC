@@ -1,0 +1,18 @@
+<h1><%= @articles.title %></h1>
+
+<p><%= @articles.contenu %></p>
+<h2>Vos commentaires</h2>
+
+<%= form_tag '/articles/:id', method: 'post' do %>
+  <input type="string" name="author" placeholder="author" />
+  <input type="text" name="content" placeholder="commentaire"/>
+
+  <input type="submit" value="Ajouter un commentaire" />
+  <% @commentaires.each do |commentaire| %>
+    <%= commentaire.author %> <%= commentaire.content %>
+  <% end %>
+<% end %>
+
+
+
+<p><a href= '/articles'> Retrournez à l'index </a></p>
