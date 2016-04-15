@@ -11,12 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413113917) do
+ActiveRecord::Schema.define(version: 20160415091135) do
 
   create_table "articles", force: true do |t|
-    t.string "title"
-    t.text   "contenu"
+    t.string  "title"
+    t.text    "contenu"
+    t.integer "commentaire_id"
   end
+
+  add_index "articles", ["commentaire_id"], name: "index_articles_on_commentaire_id"
 
   create_table "commentaires", force: true do |t|
     t.string   "author"
